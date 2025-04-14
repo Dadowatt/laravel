@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Voiture;
+use App\Models\pointage;
 use Illuminate\Http\Request;
 
-class VoitureController extends Controller
+class PointageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $voitures = Voiture::all();
-        return view('voitures.liste', compact('voitures'));
+        $pointages = pointage::all();
+        return view('pointages.index', compact('pointages'));
     }
 
     /**
@@ -21,7 +21,7 @@ class VoitureController extends Controller
      */
     public function create()
     {
-        return view('voitures.formulaire');
+        return view('pointages.formulaire');
     }
 
     /**
@@ -29,27 +29,27 @@ class VoitureController extends Controller
      */
     public function store(Request $request)
     {
-        $voiture = new Voiture();
-        $voiture->marque = $request->input('marque');
-        $voiture->modele = $request->input('modele');
-        $voiture->matricule = $request->input('matricule');
-        $voiture->save();
-    
-        return redirect()->route('voiture.index');
+        // dd($request->all());
+        $pointage = new Pointage();
+        $pointage->nom = $request->input('nom');
+        $pointage->prenom = $request->input('prenom');
+        $pointage->grade = $request->input('grade');
+        $pointage->save();
+        return redirect()->route('pointage.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Voiture $voiture)
+    public function show(pointage $pointage)
     {
-        return view('voitures.detail');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Voiture $voiture)
+    public function edit(pointage $pointage)
     {
         //
     }
@@ -57,7 +57,7 @@ class VoitureController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Voiture $voiture)
+    public function update(Request $request, pointage $pointage)
     {
         //
     }
@@ -65,7 +65,7 @@ class VoitureController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Voiture $voiture)
+    public function destroy(pointage $pointage)
     {
         //
     }
