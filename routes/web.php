@@ -9,14 +9,9 @@ Route::get('home', function () {
     return view('welcome');
 });
 
-// Route::get('liste', [VoitureController::class, 'index']);
-// Route::get('index', [VoitureController::class, 'create']);
-// Route::get('detail', [VoitureController::class, 'show']);
-
-Route::get('liste', [VoitureController::class, 'index'])->name('voiture.index');
-Route::get('ajouter', [VoitureController::class, 'create'])->name('voiture.create');
-Route::get('detail/{voiture}', [VoitureController::class, 'show'])->name('voiture.show');
-Route::post('save', [VoitureController::class, 'store'])->name('voiture.store');
+Route::get('voitures', [VoitureController::class, 'index'])->name('voiture.index');
+Route::get('voitures/ajout', [VoitureController::class, 'create'])->name('voiture.create');
+Route::post('voitures/save', [VoitureController::class, 'store'])->name('voiture.store');
 
 
 Route::get('affiche', [PointageController::class, 'index'])->name('pointage.index');

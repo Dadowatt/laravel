@@ -13,7 +13,7 @@ class VoitureController extends Controller
     public function index()
     {
         $voitures = Voiture::all();
-        return view('voitures.liste', compact('voitures'));
+        return view('voitures.index', compact('voitures'));
     }
 
     /**
