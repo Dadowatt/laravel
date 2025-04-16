@@ -22,8 +22,12 @@
         <td>{{ $voiture->matricule }}</td>
         <td>
           <a href="#" class="btn btn-success">editer</a>
-          <a href="#" class="btn btn-warning">details</a>
-          <a href="#" class="btn btn-danger">delete</a>
+          <a href="{{ route('voiture.show', $voiture->id) }}" class="btn btn-warning">detail</a>
+          <form action="{{ route('voiture.destroy', $voiture->id) }}" method="post" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="confirm('supprimer cette voiture?')" class="btn btn-danger">Supprimer</button>
+          </form>
         </td>
       </tr>
       @endforeach

@@ -43,7 +43,7 @@ class PointageController extends Controller
      */
     public function show(pointage $pointage)
     {
-        //
+        return view('pointages.detail', compact('pointage'));
     }
 
     /**
@@ -67,6 +67,7 @@ class PointageController extends Controller
      */
     public function destroy(pointage $pointage)
     {
-        //
+        $pointage->delete();
+        return redirect()->route('pointage.index');
     }
 }

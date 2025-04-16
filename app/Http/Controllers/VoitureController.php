@@ -43,7 +43,7 @@ class VoitureController extends Controller
      */
     public function show(Voiture $voiture)
     {
-        return view('voitures.detail');
+        return view('voitures.detail', compact('voiture'));
     }
 
     /**
@@ -67,6 +67,7 @@ class VoitureController extends Controller
      */
     public function destroy(Voiture $voiture)
     {
-        //
+        $voiture->delete();
+        return redirect()->route('voiture.index');
     }
 }
