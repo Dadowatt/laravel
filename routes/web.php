@@ -17,8 +17,6 @@ Route::delete('delete/{voiture}', [VoitureController::class, 'destroy'])->name('
 Route::get('voitures/edit/{voiture}', [VoitureController::class, 'edit'])->name('voiture.edit');
 Route::put('voitures/update/{voiture}', [VoitureController::class, 'update'])->name('voiture.update');
 
-
-
 Route::get('affiche', [PointageController::class, 'index'])->name('pointage.index');
 Route::get('ajout', [PointageController::class, 'create'])->name('pointage.create');
 Route::post('save', [PointageController::class, 'store'])->name('pointage.store');

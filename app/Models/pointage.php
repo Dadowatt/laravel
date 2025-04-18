@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class pointage extends Model
 {
-    //
+    protected $fillable = ['nom', 'prenom', 'grade'];
 }

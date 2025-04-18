@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\pointage;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class PointageController extends Controller
 {
@@ -30,6 +31,11 @@ class PointageController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $request->validate([
+            'nom' => 'required |Max:45|Min:3',
+            'prenom' => 'required |Max:45|Min:3',
+            'grade' => 'required |Max:45|Min:3',
+        ]);
         $pointage = new Pointage();
         $pointage->nom = $request->input('nom');
         $pointage->prenom = $request->input('prenom');
@@ -59,6 +65,11 @@ class PointageController extends Controller
      */
     public function update(Request $request, pointage $pointage)
     {
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'grade' => 'required',
+        ]);
         
         $pointage->nom = $request->input('nom');
         $pointage->prenom = $request->input('prenom');
