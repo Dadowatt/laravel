@@ -51,7 +51,7 @@ class PointageController extends Controller
      */
     public function edit(pointage $pointage)
     {
-        //
+        return view('pointages.edit', compact('pointage'));
     }
 
     /**
@@ -59,7 +59,12 @@ class PointageController extends Controller
      */
     public function update(Request $request, pointage $pointage)
     {
-        //
+        
+        $pointage->nom = $request->input('nom');
+        $pointage->prenom = $request->input('prenom');
+        $pointage->grade = $request->input('grade');
+        $pointage->save();
+        return redirect()->route('pointage.index');
     }
 
     /**

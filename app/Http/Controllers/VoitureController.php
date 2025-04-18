@@ -51,7 +51,7 @@ class VoitureController extends Controller
      */
     public function edit(Voiture $voiture)
     {
-        //
+        return view('voitures.edit', compact('voiture'));
     }
 
     /**
@@ -59,7 +59,12 @@ class VoitureController extends Controller
      */
     public function update(Request $request, Voiture $voiture)
     {
-        //
+        $voiture->marque = $request->input('marque');
+        $voiture->modele = $request->input('modele');
+        $voiture->matricule = $request->input('matricule');
+        $voiture->save();
+    
+        return redirect()->route('voiture.index');
     }
 
     /**

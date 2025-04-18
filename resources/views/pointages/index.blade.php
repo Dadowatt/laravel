@@ -21,7 +21,7 @@
       <td>{{ $pointage->prenom }}</td>
       <td>{{ $pointage->grade }}</td>
       <td>
-            <a href="" class="btn btn-success">editer</a>
+            <a href="{{ route('pointage.edit', $pointage->id) }}" class="btn btn-success">editer</a>
             <a href="{{ route('pointage.show', $pointage->id) }}" class="btn btn-warning mx-2">detail</a>
 
             <form class="d-inline" action="{{ route('pointage.destroy', $pointage->id) }}" method="post">
